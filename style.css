@@ -28,7 +28,15 @@ body {
     min-height: 70vh;
     background-position: top;
   }
+
+  .hero-overlay {
+    min-height: 5vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 1rem;
+    border-radius: 12px;
+  }
 }
+
 .fw-extra-bold {
   font-weight: 900;
 }
