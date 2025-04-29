@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: white;
+}
+
+body {
+  background-color: black;
+}
+
+.hero {
+  background-image: url("images/hero-gym2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Adjust for small screens */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 70vh;
+    background-position: top;
+  }
+}
+.fw-extra-bold {
+  font-weight: 900;
+}
+
+.fs-0 {
+  font-size: 3rem;
+}
+
+.hero-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 4rem;
+  border-radius: 12px;
+}
+
+.quote {
+  background-color: #111;
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-style: italic;
+}
