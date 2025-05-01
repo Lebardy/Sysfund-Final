@@ -29,13 +29,15 @@
       </div>
     </nav>
 
-    <!-- Signup Form -->
     <section class="container py-5">
       <h2 class="text-center mb-4">Join Titan Forge</h2>
       <p class="text-center mb-4">Fill in the form below to get started on your fitness journey with us.</p>
       <div class="row justify-content-center">
         <div class="col-md-6">
-          <form id="signupForm" action="#" method="POST">
+          <!-- Success Alert -->
+          <div id="successAlert" class="alert alert-success d-none" role="alert">Your registration was successful! Welcome to Titan Forge!</div>
+
+          <form id="signupForm" action="#" method="POST" novalidate class="needs-validation">
             <!-- Full Name -->
             <div class="mb-3">
               <label for="fullName" class="form-label">Full Name</label>
@@ -70,8 +72,8 @@
               <select class="form-select" id="plan" name="plan" required>
                 <option value="">Choose a plan</option>
                 <option value="basic">Basic Plan</option>
-                <option value="premium">Premium Plan</option>
-                <option value="elite">Elite Plan</option>
+                <option value="premium">Standard Plan</option>
+                <option value="elite">Premium Plan</option>
               </select>
               <div class="invalid-feedback">Please select a plan.</div>
             </div>
@@ -90,6 +92,52 @@
       </div>
     </section>
 
+    <script>
+      // JavaScript to enable form validation and show success alert
+      (function () {
+        "use strict";
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll(".needs-validation");
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+          // Event listener for the form submission
+          form.addEventListener(
+            "submit",
+            function (event) {
+              // Check the form validity
+              if (!form.checkValidity()) {
+                // Prevent form submission if invalid
+                event.preventDefault();
+                event.stopPropagation();
+              } else {
+                // If form is valid, show success alert
+                event.preventDefault(); // Prevent actual form submission to show the success alert
+                document.getElementById("successAlert").classList.remove("d-none");
+                // Optionally reset the form after success
+                setTimeout(() => form.reset(), 2000); // Reset the form after 2 seconds (to let the user see the success alert)
+              }
+
+              // Add the 'was-validated' class to show the feedback
+              form.classList.add("was-validated");
+            },
+            false
+          );
+
+          // Reset event listener to clear validation feedback
+          form.addEventListener(
+            "reset",
+            function () {
+              form.classList.remove("was-validated");
+              document.getElementById("successAlert").classList.add("d-none"); // Hide success alert on reset
+            },
+            false
+          );
+        });
+      })();
+    </script>
+
     <!-- Closing CTA -->
     <div class="text-center mt-4 pb-5 fs-4">
       <p class="text-light">Don't wait for the perfect moment. Take the first step towards your transformation today!</p>
@@ -97,7 +145,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="bg-dark text-white text-center py-3 footer">
       <p>&copy; 2025 Titan Forge Gym | All Rights Reserved</p>
       <p>123 Titan Ave, Muscle City, PH | (123) 456-7890</p>
     </footer>

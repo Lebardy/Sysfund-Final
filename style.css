@@ -84,7 +84,7 @@ body {
   background-color: #444;
   border-color: #444;
 }
-footer {
+.footer {
   background-color: #000;
 }
 
@@ -92,8 +92,4 @@ footer {
   font-family: "Montserrat", sans-serif;
   background-color: #121212;
   color: white;
-}
-
-::placeholder {
-  color: rgba(255, 255, 255, 0.7);
 }
